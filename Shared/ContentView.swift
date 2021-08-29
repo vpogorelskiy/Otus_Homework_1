@@ -7,9 +7,21 @@
 
 import SwiftUI
 
+struct SecondModel {
+    let title: String
+    let detail: String
+    let image: String
+}
+
 struct ContentView: View {
     
-    @State var selectedTab: Int = 0
+    @State var selectedTab: Int = 2
+    
+    let models: [SecondModel] = [
+        .init(title: "First", detail: "First detail", image: "square"),
+        .init(title: "Second", detail: "Second detail", image: "circle"),
+        .init(title: "Third", detail: "Third detail", image: "triangle")
+    ]
     
     var body: some View {
         Text("Hello, world!")
@@ -17,15 +29,14 @@ struct ContentView: View {
         TabView(selection: $selectedTab) {
             FirstView(selection: $selectedTab).tabItem {
                 TabItem(imageName: "square", text: "First")
-            }
-            
-            SecondView().tabItem {
+            }.tag(0)
+            SecondView(models: models).tabItem {
                 TabItem(imageName: "star", text: "Second")
-            }
+            }.tag(1)
             
             ThirdView().tabItem {
                 TabItem(imageName: "triangle", text: "Third")
-            }
+            }.tag(2)
         }
     }
 }
@@ -59,6 +70,9 @@ struct FirstView: View {
 }
 
 struct SecondView: View {
+    
+    @State var models: [SecondModel]
+    
     var body: some View {
         NavigationView {
             List {
@@ -66,14 +80,17 @@ struct SecondView: View {
                 Text("Two")
                 Text("Three")
             }
-        }
+        }.navigationTitle("Second Tab")
     }
 }
 
 struct ThirdView: View {
     var body: some View {
-        Button("Open modal") {
-            // TODO: Implement
-        }
+        NavigationLink(
+            destination: Text("Modal Presented"),
+            isActive: /*@START_MENU_TOKEN@*/.constant(true)/*@END_MENU_TOKEN@*/,
+            label: {
+                Text("Open modal")
+            })
     }
 }
