@@ -10,17 +10,16 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var model: ViewModelContainer
-    @State var selectedTab: Int = 1
     let models: [ViewModel] = ViewModel.defaultValues
     
     var body: some View {
         Text("Hello, world!")
             .padding()
         TabView(selection: $model.selectedScreen) {
-            FirstView(selection: $model.selectedScreen).tabItem {
+            FirstView(model: model).tabItem {
                 TabItem(imageName: "square", text: "First")
             }.tag(0)
-            SecondView(models: model.models).tabItem {
+            SecondView(model: model).tabItem {
                 TabItem(imageName: "star", text: "Second")
             }.tag(1)
             

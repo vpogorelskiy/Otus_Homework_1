@@ -7,12 +7,17 @@
 
 import Foundation
 
-struct ViewModel: Hashable, Identifiable {
-    var id: UUID = UUID()
-    
+class ViewModel: ObservableObject, Identifiable  {
     let title: String
     let detail: String
     let image: String
+    @Published var isSelected: Bool = false
+    
+    init(title: String, detail: String, image: String) {
+        self.title = title
+        self.detail = detail
+        self.image = image
+    }
     
     static let defaultValues: [ViewModel] = [
         .init(title: "First", detail: "First detail", image: "square"),
@@ -25,7 +30,7 @@ class ViewModelContainer: ObservableObject {
     let models: [ViewModel]
     
     @Published var selectedScreen: Int = 0
-    @Published var selectedId: UUID?
+//    @Published var selectedId: UUID?
     
     init(models: [ViewModel]) {
         self.models = models

@@ -8,17 +8,30 @@
 import SwiftUI
 
 struct SecondView: View {
-    @State var models: [ViewModel]
+    @ObservedObject var model: ViewModelContainer
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(models) { model in
+                ForEach(model.models) { item in
+//                    NavigationLink(
+//                        destination: ModelDetailView(model: item),
+//                        isActive: Binding(get: { item.isSelected
+//                        },
+//                        set: { item.isSelected = $0 }),
+//                        label: {
+//                            HStack{
+//                                Image(systemName: item.image)
+//                                Text(item.title)
+//                            }
+//                        })
+                    
+                    
                     NavigationLink(
-                        destination: ModelDetailView(model: model)) {
+                        destination: ModelDetailView(model: item)) {
                             HStack{
-                                Image(systemName: model.image)
-                                Text(model.title)
+                                Image(systemName: item.image)
+                                Text(item.title)
                             }
                         }
                 }
@@ -29,7 +42,7 @@ struct SecondView: View {
 
 struct SecondView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondView(models: ViewModel.defaultValues)
+        SecondView(model: ViewModelContainer.defaultInstance())
     }
 }
 
