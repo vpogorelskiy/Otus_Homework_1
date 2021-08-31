@@ -12,6 +12,7 @@ struct OTUS_Homework_1App: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ViewModelContainer.defaultInstance())
         }
     }
 }

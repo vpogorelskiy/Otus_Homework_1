@@ -7,34 +7,20 @@
 
 import SwiftUI
 
-struct ViewModel: Hashable, Identifiable {
-    var id: UUID = UUID()
-    
-    let title: String
-    let detail: String
-    let image: String
-    
-    static let defaultValues: [ViewModel] = [
-        .init(title: "First", detail: "First detail", image: "square"),
-        .init(title: "Second", detail: "Second detail", image: "circle"),
-        .init(title: "Third", detail: "Third detail", image: "triangle")
-    ]
-}
-
 struct ContentView: View {
     
+    @EnvironmentObject var model: ViewModelContainer
     @State var selectedTab: Int = 1
-    
     let models: [ViewModel] = ViewModel.defaultValues
     
     var body: some View {
         Text("Hello, world!")
             .padding()
-        TabView(selection: $selectedTab) {
-            FirstView(selection: $selectedTab).tabItem {
+        TabView(selection: $model.selectedScreen) {
+            FirstView(selection: $model.selectedScreen).tabItem {
                 TabItem(imageName: "square", text: "First")
             }.tag(0)
-            SecondView(models: models).tabItem {
+            SecondView(models: model.models).tabItem {
                 TabItem(imageName: "star", text: "Second")
             }.tag(1)
             
@@ -48,6 +34,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ViewModelContainer.defaultInstance())
     }
 }
 
