@@ -10,9 +10,9 @@
 		2BB0192F26DA69B70053F18B /* OTUS_Homework_1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB0191C26DA69B60053F18B /* OTUS_Homework_1App.swift */; };
 		2BB0193026DA69B70053F18B /* OTUS_Homework_1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB0191C26DA69B60053F18B /* OTUS_Homework_1App.swift */; };
 		2BB0193126DA69B70053F18B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB0191D26DA69B60053F18B /* ContentView.swift */; };
-		2BB0193226DA69B70053F18B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB0191D26DA69B60053F18B /* ContentView.swift */; };
 		2BB0193326DA69B70053F18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB0191E26DA69B70053F18B /* Assets.xcassets */; };
 		2BB0193426DA69B70053F18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB0191E26DA69B70053F18B /* Assets.xcassets */; };
+		D61BF9A926DEA70900BB32AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB0191D26DA69B60053F18B /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,7 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BB0193226DA69B70053F18B /* ContentView.swift in Sources */,
+				D61BF9A926DEA70900BB32AC /* ContentView.swift in Sources */,
 				2BB0193026DA69B70053F18B /* OTUS_Homework_1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

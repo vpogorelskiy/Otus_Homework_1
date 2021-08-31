@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct SecondModel {
+struct SecondModel: Hashable, Identifiable {
+    var id: UUID = UUID()
+    
     let title: String
     let detail: String
     let image: String
@@ -15,7 +17,7 @@ struct SecondModel {
 
 struct ContentView: View {
     
-    @State var selectedTab: Int = 2
+    @State var selectedTab: Int = 1
     
     let models: [SecondModel] = [
         .init(title: "First", detail: "First detail", image: "square"),
@@ -76,11 +78,21 @@ struct SecondView: View {
     var body: some View {
         NavigationView {
             List {
-                Text("One")
-                Text("Two")
-                Text("Three")
-            }
-        }.navigationTitle("Second Tab")
+                ForEach(models) { model in
+                    NavigationLink(
+                        destination: VStack{
+                            Text(model.title)
+                            Spacer().frame(height: 20)
+                            Image(systemName: model.image)
+                            Spacer().frame(height: 20)
+                            Text(model.detail)
+                        },
+                        label: {
+                            Text(model.title)
+                        })
+                }
+            }.navigationTitle("Second")
+        }
     }
 }
 
