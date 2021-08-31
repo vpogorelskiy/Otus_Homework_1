@@ -7,23 +7,25 @@
 
 import SwiftUI
 
-struct SecondModel: Hashable, Identifiable {
+struct ViewModel: Hashable, Identifiable {
     var id: UUID = UUID()
     
     let title: String
     let detail: String
     let image: String
+    
+    static let defaultValues: [ViewModel] = [
+        .init(title: "First", detail: "First detail", image: "square"),
+        .init(title: "Second", detail: "Second detail", image: "circle"),
+        .init(title: "Third", detail: "Third detail", image: "triangle")
+    ]
 }
 
 struct ContentView: View {
     
     @State var selectedTab: Int = 1
     
-    let models: [SecondModel] = [
-        .init(title: "First", detail: "First detail", image: "square"),
-        .init(title: "Second", detail: "Second detail", image: "circle"),
-        .init(title: "Third", detail: "Third detail", image: "triangle")
-    ]
+    let models: [ViewModel] = ViewModel.defaultValues
     
     var body: some View {
         Text("Hello, world!")
@@ -60,49 +62,3 @@ struct TabItem: View {
     }
 }
 
-struct FirstView: View {
-    
-    @Binding var selection: Int
-    
-    var body: some View {
-        Button("Go to second") {
-            selection = 1
-        }
-    }
-}
-
-struct SecondView: View {
-    
-    @State var models: [SecondModel]
-    
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(models) { model in
-                    NavigationLink(
-                        destination: VStack{
-                            Text(model.title)
-                            Spacer().frame(height: 20)
-                            Image(systemName: model.image)
-                            Spacer().frame(height: 20)
-                            Text(model.detail)
-                        },
-                        label: {
-                            Text(model.title)
-                        })
-                }
-            }.navigationTitle("Second")
-        }
-    }
-}
-
-struct ThirdView: View {
-    var body: some View {
-        NavigationLink(
-            destination: Text("Modal Presented"),
-            isActive: /*@START_MENU_TOKEN@*/.constant(true)/*@END_MENU_TOKEN@*/,
-            label: {
-                Text("Open modal")
-            })
-    }
-}

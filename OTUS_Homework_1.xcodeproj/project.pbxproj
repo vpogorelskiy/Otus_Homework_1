@@ -13,6 +13,10 @@
 		2BB0193326DA69B70053F18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB0191E26DA69B70053F18B /* Assets.xcassets */; };
 		2BB0193426DA69B70053F18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB0191E26DA69B70053F18B /* Assets.xcassets */; };
 		D61BF9A926DEA70900BB32AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB0191D26DA69B60053F18B /* ContentView.swift */; };
+		D61BF9AB26DEAD0F00BB32AC /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61BF9AA26DEAD0F00BB32AC /* SecondView.swift */; };
+		D61BF9AC26DEAD0F00BB32AC /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61BF9AA26DEAD0F00BB32AC /* SecondView.swift */; };
+		D61BF9AE26DEADAA00BB32AC /* OtherViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61BF9AD26DEADAA00BB32AC /* OtherViews.swift */; };
+		D61BF9AF26DEADAA00BB32AC /* OtherViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61BF9AD26DEADAA00BB32AC /* OtherViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,8 @@
 		2BB0192B26DA69B70053F18B /* OTUS_Homework_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTUS_Homework_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB0192D26DA69B70053F18B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BB0192E26DA69B70053F18B /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		D61BF9AA26DEAD0F00BB32AC /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		D61BF9AD26DEADAA00BB32AC /* OtherViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,8 @@
 			children = (
 				2BB0191C26DA69B60053F18B /* OTUS_Homework_1App.swift */,
 				2BB0191D26DA69B60053F18B /* ContentView.swift */,
+				D61BF9AA26DEAD0F00BB32AC /* SecondView.swift */,
+				D61BF9AD26DEADAA00BB32AC /* OtherViews.swift */,
 				2BB0191E26DA69B70053F18B /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -187,8 +195,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D61BF9AB26DEAD0F00BB32AC /* SecondView.swift in Sources */,
 				2BB0193126DA69B70053F18B /* ContentView.swift in Sources */,
 				2BB0192F26DA69B70053F18B /* OTUS_Homework_1App.swift in Sources */,
+				D61BF9AE26DEADAA00BB32AC /* OtherViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,8 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D61BF9AC26DEAD0F00BB32AC /* SecondView.swift in Sources */,
 				D61BF9A926DEA70900BB32AC /* ContentView.swift in Sources */,
 				2BB0193026DA69B70053F18B /* OTUS_Homework_1App.swift in Sources */,
+				D61BF9AF26DEADAA00BB32AC /* OtherViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
