@@ -15,18 +15,35 @@ struct SecondView: View {
             List {
                 ForEach(models) { model in
                     NavigationLink(
-                        destination: VStack{
-                            Text(model.title)
-                            Spacer().frame(height: 20)
-                            Image(systemName: model.image)
-                            Spacer().frame(height: 20)
-                            Text(model.detail)
-                        },
-                        label: {
-                            Text(model.title)
-                        })
+                        destination: ModelDetailView(model: model)) {
+                            HStack{
+                                Image(systemName: model.image)
+                                Text(model.title)
+                            }
+                        }
                 }
             }.navigationTitle("Second")
+        }
+    }
+}
+
+struct SecondView_Previews: PreviewProvider {
+    static var previews: some View {
+        SecondView(models: ViewModel.defaultValues)
+    }
+}
+
+
+struct ModelDetailView: View {
+    @State var model: ViewModel
+    
+    var body: some View {
+        VStack{
+            Text(model.title)
+            Spacer().frame(height: 20)
+            Image(systemName: model.image)
+            Spacer().frame(height: 20)
+            Text(model.detail)
         }
     }
 }
