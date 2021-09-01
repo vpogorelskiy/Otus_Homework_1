@@ -13,7 +13,10 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $model.selectedScreen) {
-            FirstView(model: model).tabItem {
+            Button("Go to the second tab") {
+                model.selectedScreen = 1
+                model.selection = model.item.first?.id
+            }.tabItem {
                 TabItem(imageName: "square", text: "First")
             }.tag(0)
             SecondView(model: model).tabItem {

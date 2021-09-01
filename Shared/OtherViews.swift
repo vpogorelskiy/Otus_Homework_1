@@ -7,25 +7,35 @@
 
 import SwiftUI
 
-struct FirstView: View {
+struct ThirdView: View {
     
-    @ObservedObject var model: ViewModel
+    @State var sheetPresented = false
+    @State var fullScreenPresented = false
     
     var body: some View {
-        Button("Go to the second") {
-            model.selectedScreen = 1
-            model.selection = model.item.first?.id
+        VStack {
+            Button("Open sheet") {
+                sheetPresented.toggle()
+            }.sheet(isPresented: $sheetPresented, content: {
+                Text("I am a sheet")
+            })
+            Spacer().frame(height: 50)
+            Button("Open fullscreen") {
+                fullScreenPresented.toggle()
+            }.fullScreenCover(isPresented: $fullScreenPresented,
+                              content: {
+                                Text("I am fullscreen modal")
+                                Spacer().frame(height: 50)
+                                Button("Tap to dismiss") {
+                                    fullScreenPresented.toggle()
+                                }
+                              })
         }
     }
 }
 
-struct ThirdView: View {
-    var body: some View {
-        NavigationLink(
-            destination: Text("Modal Presented"),
-            isActive: /*@START_MENU_TOKEN@*/.constant(true)/*@END_MENU_TOKEN@*/,
-            label: {
-                Text("Open modal")
-            })
+struct ThirdView_Previews: PreviewProvider {
+    static var previews: some View {
+        ThirdView()
     }
 }
