@@ -17,28 +17,23 @@ struct ThirdView: View {
             Button("Open sheet") {
                 sheetPresented.toggle()
             }.sheet(isPresented: $sheetPresented, content: {
-                Text("I am a sheet")
-                Spacer().frame(height: 50)
                 Text("Swipe me down to dismiss")
+                Spacer().frame(height: 50)
+                Button("Or tap here") {
+                    sheetPresented.toggle()
+                }
             })
             Spacer().frame(height: 50)
             Button("Open fullscreen") {
                 fullScreenPresented.toggle()
             }.fullScreenCover(isPresented: $fullScreenPresented,
                               content: {
-                                UIViewWrapper(text: "This is UILabel")
-                                Spacer().frame(height: 50)
-                                Button("Tap to dismiss") {
-                                    fullScreenPresented.toggle()
-                                }
+                                    Button("Tap to dismiss") {
+                                        fullScreenPresented.toggle()
+                                    }
+                                    UIViewWrapper(text: "This is UILabel")
                               })
         }
-    }
-}
-
-struct ThirdView_Previews: PreviewProvider {
-    static var previews: some View {
-        ThirdView()
     }
 }
 
@@ -52,5 +47,11 @@ struct UIViewWrapper: View, UIViewRepresentable {
     func updateUIView(_ uiView: UILabel, context: Context) {
         uiView.text = text
         uiView.textAlignment = .center
+    }
+}
+
+struct ThirdView_Previews: PreviewProvider {
+    static var previews: some View {
+        ThirdView()
     }
 }

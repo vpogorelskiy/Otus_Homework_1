@@ -15,7 +15,7 @@ struct ContentView: View {
         TabView(selection: $model.selectedTab) {
             Button("Go to the second tab") {
                 model.selectedTab = 1
-                model.selectedItemId = model.item.first?.id
+                model.selectedItemId = model.items.last?.id
             }.tabItem {
                 TabItem(imageName: "square", text: "First")
             }.tag(0)

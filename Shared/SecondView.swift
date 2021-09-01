@@ -15,7 +15,7 @@ struct SecondView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(model.item) { item in
+                ForEach(model.items) { item in
                     NavigationLink(
                         destination: ModelDetailView(model: item),
                         tag: item.id,
