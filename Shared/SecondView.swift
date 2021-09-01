@@ -19,9 +19,9 @@ struct SecondView: View {
                     NavigationLink(
                         destination: ModelDetailView(model: item),
                         tag: item.id,
-                        selection: Binding(get: {model.selection}, set: {model.selection = $0}),
+                        selection: Binding( get: {model.selectedItemId}, set: {model.selectedItemId = $0} ), // Использование 'model.$selection' вместо Binding(...) приводит к ошибке: "Cannot convert value of type 'Published<UUID?>.Publisher' to expected argument type 'Binding<UUID?>'"
                         label: {
-                            HStack{
+                            HStack {
                                 Image(systemName: item.image)
                                 Text(item.title)
                             }

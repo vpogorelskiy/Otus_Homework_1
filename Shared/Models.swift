@@ -23,8 +23,8 @@ struct ViewModelItem: Identifiable, Hashable  {
 class ViewModel: ObservableObject {
     let item: [ViewModelItem]
     
-    @Published var selectedScreen: Int = 0
-    @Published var selection: UUID?
+    @Published var selectedTab: Int = 0
+    @Published var selectedItemId: UUID?
     
     init(models: [ViewModelItem]) {
         self.item = models

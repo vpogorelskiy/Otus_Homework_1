@@ -12,10 +12,10 @@ struct ContentView: View {
     @EnvironmentObject var model: ViewModel
     
     var body: some View {
-        TabView(selection: $model.selectedScreen) {
+        TabView(selection: $model.selectedTab) {
             Button("Go to the second tab") {
-                model.selectedScreen = 1
-                model.selection = model.item.first?.id
+                model.selectedTab = 1
+                model.selectedItemId = model.item.first?.id
             }.tabItem {
                 TabItem(imageName: "square", text: "First")
             }.tag(0)
