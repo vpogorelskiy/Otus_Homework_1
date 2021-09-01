@@ -9,12 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var model: ViewModelContainer
-    let models: [ViewModel] = ViewModel.defaultValues
+    @EnvironmentObject var model: ViewModel
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
         TabView(selection: $model.selectedScreen) {
             FirstView(model: model).tabItem {
                 TabItem(imageName: "square", text: "First")
@@ -33,7 +30,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(ViewModelContainer.defaultInstance())
+            .environmentObject(ViewModel.defaultInstance())
     }
 }
 

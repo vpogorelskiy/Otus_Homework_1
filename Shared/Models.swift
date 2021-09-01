@@ -7,36 +7,30 @@
 
 import Foundation
 
-class ViewModel: ObservableObject, Identifiable  {
+struct ViewModelItem: Identifiable, Hashable  {
+    let id: UUID = UUID()
     let title: String
     let detail: String
     let image: String
-    @Published var isSelected: Bool = false
     
-    init(title: String, detail: String, image: String) {
-        self.title = title
-        self.detail = detail
-        self.image = image
-    }
-    
-    static let defaultValues: [ViewModel] = [
+    static let defaultValues: [ViewModelItem] = [
         .init(title: "First", detail: "First detail", image: "square"),
         .init(title: "Second", detail: "Second detail", image: "circle"),
         .init(title: "Third", detail: "Third detail", image: "triangle")
     ]
 }
 
-class ViewModelContainer: ObservableObject {
-    let models: [ViewModel]
+class ViewModel: ObservableObject {
+    let item: [ViewModelItem]
     
     @Published var selectedScreen: Int = 0
-//    @Published var selectedId: UUID?
+    @Published var selection: UUID?
     
-    init(models: [ViewModel]) {
-        self.models = models
+    init(models: [ViewModelItem]) {
+        self.item = models
     }
 }
 
-extension ViewModelContainer {
-    static func defaultInstance() -> ViewModelContainer { return ViewModelContainer(models: ViewModel.defaultValues )  }
+extension ViewModel {
+    static func defaultInstance() -> ViewModel { return ViewModel(models: ViewModelItem.defaultValues )  }
 }

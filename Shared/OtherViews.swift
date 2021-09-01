@@ -9,12 +9,12 @@ import SwiftUI
 
 struct FirstView: View {
     
-    @ObservedObject var model: ViewModelContainer
+    @ObservedObject var model: ViewModel
     
     var body: some View {
         Button("Go to the second") {
             model.selectedScreen = 1
-            model.models.first?.isSelected = true
+            model.selection = model.item.first?.id
         }
     }
 }
